@@ -1,0 +1,189 @@
+//sass style.scss ../../WebContent/ressources/css/style.css --watch --style compressed
+
+/*
+* Utilisation de sasss, bootsrap 4.3.1 
+* et minification de l'ensemble de la feuille css
+*/
+
+$blue:    #208dbd !default;
+$yellow:  #f1af22 !default;
+$cyan:    #395163 !default;
+$gris : #e6e6e5 !default;
+$vert : #19794d !default;
+$rouge : #b9252a !default;
+$gris_f : #a2a2a2 !default;
+$gris_ff:#5b5b5b !default;
+$dark_bg:#363636 !default;
+$primary: $gris !default;
+$success:       $vert !default;
+$info:          $cyan !default;
+$warning:       $yellow !default;
+$danger:        $rouge !default;
+
+@import "scss/bootstrap.scss";
+
+/***********************************
+   Ma personalisation commence ici
+************************************/
+@font-face {
+	font-family: "Corbel";
+	src: url('../font/corbel.ttf');
+}
+@font-face {
+	font-family: "Corbel-Italic";
+	font-style: italic;
+	src: url('../font/corbeli.ttf');
+}
+@font-face {
+	font-family: "Corbel-Bold";
+	font-weight: bold;
+	src: url('../font/corbelb.ttf');
+}
+
+html {
+  font-family: Corbel;
+  //font-size: 1em;
+
+}
+header, article,section,footer,aside{
+	display: block;
+	font-family: Corbel;
+}
+body{
+	background-color:$blue;
+ 	 margin: 0 auto;
+	  padding-top:70px;//fixe le probleme de barre de navigation sur le header
+	  font-size: 100%;
+	  background-attachment: fixed;
+	  color:$cyan;
+}
+
+header{
+	margin-top: 1em;
+	margin-bottom: 1em;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	background-color:$yellow ;
+    width:100%;
+}
+.navbar{
+	background-color:$cyan;
+	border-bottom: 2px solid $blue;//ajoute une bordure inferieure de la couleur du background
+}
+nav a,footer a
+{
+		color: $yellow;
+		font-family: Corbel-Bold;
+}
+nav a:hover,footer a:hover{
+		color: $gris;
+}
+a,h1{color: $cyan;}
+
+h1{
+	text-align: center;
+	font-family: Corbel-Bold;
+}
+// @media (prefers-color-scheme: dark)
+.dark{
+	background-color:$dark_bg;
+	color:$gris;
+	@import "_dark.scss";
+}
+
+footer{
+    width:100%;
+	background-color: $cyan;
+	border-top: 2px solid $blue;
+    color: $yellow;
+	font-family: Corbel-Bold;
+	padding-top: 1em;
+	margin-top:3em;
+	text-align: center;
+	position: absolute;
+}
+
+.searchForm{
+	margin:auto;
+	text-align: center;
+}
+.label_multi{vertical-align: top;}
+.input_txt_multi{
+	width:300px;
+	height:80px;
+}
+.b2t
+{
+	border:4px solid $cyan;
+	tr,td,th{
+		border:2px solid $cyan;
+	}
+}
+.tableList{
+
+	margin:auto;
+	font-size: smaller;
+	width:100% ;
+	table,th,td 
+	{
+		border: 1px solid $cyan;
+		border-collapse: collapse;
+	}
+
+		
+
+	td{	column-width: auto;}
+	th{
+		text-align: center;
+		font-weight: bold;
+		}
+		tr:nth-child(even) { background-color: $gris;}
+		tr:nth-child(odd) { background-color: $gris_f;}
+}
+.nav-link.active{
+
+		color: $cyan !important;
+		font-weight: bold !important;
+}
+.tableShow
+{
+	margin:auto;
+	border:none;
+	font-size: medium;
+	width:100% ;
+	tr:nth-child(even) { background-color:none;}
+	tr:nth-child(odd) { background-color: none;}
+}
+.w-50{width: 50%;}
+.w-25{width: 25%;}
+.bulle{
+	background-color : $gris;
+	border: 3px solid $cyan;
+	width: 50%;
+	border-radius: 2em;
+	margin-bottom: 1em;
+}
+
+.left {float: left;}
+.right {float: right;}
+.w53p{width: 53px !important;}
+
+.dsp-bk{
+    display: block;
+}
+.error{
+	color:$rouge;
+	font-weight: bold;
+	border: solid 2px $rouge;
+}
+
+
+form{
+	margin: 0;
+	padding: 0;
+}
+
+@media (max-width: 1200px) {}
+@media (max-width: 1000px) {}
+@media (max-width: 767px) {}
+@media (max-width: 567px){}

@@ -1,0 +1,15 @@
+$success:       $blue !default;
+$info:          $cyan !default;
+$warning:       $yellow !default;
+$danger:        $rouge !default;
+
+header{background-color:$gris_ff;}
+footer,.navbar{background-color: #2c2c2c;color: $gris;border-top: 2px solid $dark_bg;}
+h1{color: $gris;}
+nav a,footer a,.bf,.titre{color: $gris;}
+nav a:hover,footer a:hover{color: $gris_f;}
+table, th, td {border: 1px solid $gris;}
+table tr:nth-child(even) {background-color: $gris_f;}
+table tr:nth-child(odd) {background-color: $gris_ff;}
+.hoverLigne{color:$yellow;}
+.bulle{background-color :$gris_f;color:$gris;border: 3px solid $gris;}
