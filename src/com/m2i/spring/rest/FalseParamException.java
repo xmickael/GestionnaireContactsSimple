@@ -1,5 +1,6 @@
 package com.m2i.spring.rest;
 
+@SuppressWarnings("serial")
 public class FalseParamException extends RuntimeException{
 
 	public FalseParamException() {super();}

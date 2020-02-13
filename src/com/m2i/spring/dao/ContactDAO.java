@@ -52,8 +52,7 @@ public class ContactDAO implements IdaoContact {
 	public ArrayList<Contact> search(String s) {
 		
 		Session session = sessionFactory.getCurrentSession();
-		@SuppressWarnings("rawtypes")
-		Query q = session.createQuery("from Contact as c "
+		Query<Contact> q = session.createQuery("from Contact as c "
 									+ "where c.nom like :search "
 									+ "or c.prenom like :search "
 									+ "or c.ville like :search "
@@ -73,7 +72,8 @@ public class ContactDAO implements IdaoContact {
 	public boolean existPhoto(String s)
 	{
 		Session session = sessionFactory.getCurrentSession();
-		Query q = session.createQuery("from Contact where photo like :search ");
+		@SuppressWarnings("unchecked")
+		Query<Contact> q = session.createQuery("from Contact where photo like :search ");
 		q.setParameter("search",s);
 		return !(q.list().size()==0);
 	}
@@ -82,7 +82,8 @@ public class ContactDAO implements IdaoContact {
 		
 		Session session = sessionFactory.getCurrentSession();
 
-		Query q = session.createQuery("from Contact where "+p+" like :search ");
+		@SuppressWarnings("unchecked")
+		Query<Contact> q = session.createQuery("from Contact where "+p+" like :search ");
 		q.setParameter("search","%"+s+"%");
 		System.out.println("requete search param faite pour : "+s);
 		System.out.println(q.list().size()+" resultats trouvés");
@@ -92,7 +93,8 @@ public class ContactDAO implements IdaoContact {
 	public ArrayList<Contact> searchSpammable() 
 	{
 		Session session = sessionFactory.getCurrentSession();
-		Query q = session.createQuery("from Contact where spam=1");
+		@SuppressWarnings("unchecked")
+		Query<Contact> q = session.createQuery("from Contact where spam=1");
 		return (ArrayList<Contact>) q.list();
 	}
 	

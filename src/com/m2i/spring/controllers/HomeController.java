@@ -1,7 +1,5 @@
 package com.m2i.spring.controllers;
 
-import java.util.ArrayList;
-
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -87,7 +85,7 @@ public class HomeController {
 	}
 	
 	@RequestMapping("actionContact")
-	public String addContactDB(@Valid  @ModelAttribute("contact") Contact c,BindingResult bd,@RequestParam("action") String action,
+	public String formContact2DB(@Valid  @ModelAttribute("contact") Contact c,BindingResult bd,@RequestParam("action") String action,
 			@RequestParam("photofile") MultipartFile file,Model m,HttpSession session)
 	{
 		if(!action.equals("Annuler"))//test si le boutton Annuler n'a pas été pressé

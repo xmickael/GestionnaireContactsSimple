@@ -1,5 +1,6 @@
 package com.m2i.spring.rest;
 
+@SuppressWarnings("serial")
 public class SearchResultEmptyException extends RuntimeException{
 
 	public SearchResultEmptyException() {super();}

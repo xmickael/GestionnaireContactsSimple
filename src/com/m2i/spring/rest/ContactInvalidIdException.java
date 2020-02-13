@@ -1,5 +1,6 @@
 package com.m2i.spring.rest;
 
+@SuppressWarnings("serial")
 public class ContactInvalidIdException extends RuntimeException {
 
 	public ContactInvalidIdException() {super();}
