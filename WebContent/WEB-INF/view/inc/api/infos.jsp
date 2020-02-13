@@ -11,7 +11,7 @@ Les requetes envoyées à l'API peuvent etre de différentes méthode :</h6>
 </ul>
 <br>
 <h6 class="card-subtitle text-muted">Schéma d'un contact</h6><br>
-<table class="table table-hover m-auto b2t">
+<table class="table table-hover m-auto b2t tableList">
 	<tr class="text-center">
 		<th>Clé</th>
 		<th>Type</th>
