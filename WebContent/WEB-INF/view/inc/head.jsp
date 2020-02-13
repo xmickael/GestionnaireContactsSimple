@@ -6,3 +6,4 @@
 
 <link rel=stylesheet href="${pageContext.request.contextPath}/ressources/css/style.css">
 <link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/ressources/img/favicon.ico">
+

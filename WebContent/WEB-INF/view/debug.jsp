@@ -6,6 +6,7 @@
 <jsp:include page="inc/head.jsp"></jsp:include>
 <title>Page Debug</title>
 
+
 </head>
 <body>
 	<header>
@@ -17,38 +18,9 @@
 	</header>
 
 
-<div id="demo"></div>
-
-<script type="text/javascript">
-
-var xmlhttp = new XMLHttpRequest();
-xmlhttp.onreadystatechange = function() {
-  if (this.readyState == 4 && this.status == 200) {
-    var myArr = JSON.parse(this.responseText);
-    document.getElementById("demo").innerHTML = myArr[0].nom;
-  }
-};
-xmlhttp.open("GET", "http://localhost:8080/GestionnaireContacts/api/contacts", true);
-xmlhttp.send();
-</script>
-
-
-
-
-
-
-
-
-
-
-
 
 
 
 	<jsp:include page="inc/footer.jsp"></jsp:include>
-
-	
-
-
 </body>
 </html>

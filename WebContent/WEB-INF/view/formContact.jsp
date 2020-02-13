@@ -56,7 +56,7 @@
 			        <form:input type="text" path="prenom" size="20"/>
 			        <br><br>
 			        <form:label path="telephone">Telephone : </form:label>
-			        <form:input type="number" path="telephone" size="10"/>
+			        <form:input type="text" path="telephone" size="10"/>
 			        <form:label path="email">Email : </form:label>
 			        <form:input type="email" path="email" size="25"/>
 			        <br><br>
