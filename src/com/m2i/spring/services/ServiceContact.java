@@ -60,4 +60,8 @@ public class ServiceContact {
 	{
 		return maDao.existPhoto(s);
 	}
+	@Transactional
+	public ArrayList<String> autocomplete(String s){
+		return maDao.autocomplete(s);
+	}
 }

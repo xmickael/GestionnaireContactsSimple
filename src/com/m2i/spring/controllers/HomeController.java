@@ -1,5 +1,7 @@
 package com.m2i.spring.controllers;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +15,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.m2i.spring.demo.FnUtil;
 import com.m2i.spring.entity.Contact;
 import com.m2i.spring.services.ServiceContact;
@@ -60,9 +61,18 @@ public class HomeController {
 		return "debug";
 	}
 	
+	@RequestMapping("autocomplete")
+	public String autoCompleteSearch(@RequestParam("search") String s,Model m)
+	{
+		System.out.println("recherche autocomplete pour "+s);
+		m.addAttribute("search", s);
+		m.addAttribute("results", service.autocomplete(s));
+		return "debug";
+	}
+	
 	//Page pour tester les fonctions back
 	@RequestMapping("main")
-	public String mainExec() throws JsonProcessingException
+	public String mainExec()
 	{
 		System.out.println(cName+"Lancement du main");
 		//Mettre le main ici !!!!!

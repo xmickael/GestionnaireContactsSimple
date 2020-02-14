@@ -24,5 +24,6 @@ public interface IdaoContact {
 	public ArrayList<Contact> searchByParameter(String p,String s);
 	public ArrayList<Contact> searchSpammable();
 	public boolean existPhoto(String s);
+	public ArrayList<String> autocomplete(String s);
 	
 }

@@ -49,7 +49,15 @@ public class JsonController {
 		else
 			throw new SearchResultEmptyException();
 	}
-
+	@GetMapping("autocomplete/{auto}")
+	ArrayList<String> getAutoCmplete(@PathVariable("auto") String s)
+	{
+		ArrayList<String> l =service.autocomplete(s);
+		if(l.size()!=0)
+			return l;
+		else
+			throw new SearchResultEmptyException();
+	}
 	@DeleteMapping("remove/{id}")
 	void  deleteJsonContactById(@PathVariable("id") int i)
 	{	
@@ -125,10 +133,9 @@ public class JsonController {
 	@GetMapping("{param}/{s}")
 	ArrayList<Contact> getJsonContactByParam(@PathVariable("param") String p,@PathVariable("s") String s)
 	{
-		ArrayList<String> lp = new ArrayList<String>();
+		ArrayList<String> lp = FnUtil.getParamList();
 		//Ajout des commandes possibles dans une liste
-		lp.add("titre");lp.add("nom");lp.add("prenom");lp.add("email");lp.add("telephone");lp.add("adresse");
-		lp.add("cpostal");lp.add("ville");lp.add("web");lp.add("notes");lp.add("search");lp.add("contact");
+		lp.add("search");lp.add("contact");
 		System.out.println(cName +"param : "+p+" s : "+s + "contains : "+lp.contains(p));
 		//vérifie que la commande reçue est bien dans la liste sinon renvoie une erreur de mauvais paramètre
 		if(lp.contains(p))

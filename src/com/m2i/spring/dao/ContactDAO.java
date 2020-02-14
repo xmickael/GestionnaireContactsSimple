@@ -7,6 +7,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import com.m2i.spring.demo.FnUtil;
 import com.m2i.spring.entity.Contact;
 import com.m2i.spring.interfaces.IdaoContact;
 
@@ -97,6 +99,26 @@ public class ContactDAO implements IdaoContact {
 		Query<Contact> q = session.createQuery("from Contact where spam=1");
 		return (ArrayList<Contact>) q.list();
 	}
+	
+	@SuppressWarnings("unchecked")
+	public ArrayList<String> autocomplete(String s)
+	{
+		Session session = sessionFactory.getCurrentSession();
+		ArrayList<String> r =new ArrayList<String>();
+		ArrayList<String> param = new ArrayList<String>();//Fn.Util.getParam();
+		param.add("nom");
+		param.add("prenom");
+		param.add("ville");
+		Query<String> q;
+		for(String p:param)
+		{
+			q = session.createQuery("select "+p+" from Contact where "+p+" like :search");
+			q.setParameter("search","%"+s+"%"); 
+			r.addAll(q.list());
+		}
+		return r;
+	}
+	
 	
     public void setSessionFactory(SessionFactory sessionFactory){this.sessionFactory=sessionFactory;}
 	public SessionFactory getSessionFactory() {return sessionFactory;}

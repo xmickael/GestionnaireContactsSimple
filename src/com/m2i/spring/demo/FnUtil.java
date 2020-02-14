@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.ArrayList;
 import java.util.Random;
 
 import org.springframework.web.multipart.MultipartFile;
@@ -79,5 +80,23 @@ public class FnUtil {
 		File f = new File(path);
 		f.delete();
 	}
+	
+	public static ArrayList<String> getParamList()
+	{
+		ArrayList<String> lp = new ArrayList<String>();
+		//Ajout des commandes possibles dans une liste
+		lp.add("titre");
+		lp.add("nom");
+		lp.add("prenom");
+		lp.add("email");
+		lp.add("telephone");
+		lp.add("adresse");
+		lp.add("cpostal");
+		lp.add("ville");
+		lp.add("web");
+		lp.add("notes");
+		return lp;
+	}
+
 	
 }
