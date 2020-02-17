@@ -103,6 +103,7 @@ public class ContactDAO implements IdaoContact {
 	@SuppressWarnings("unchecked")
 	public ArrayList<String> autocomplete(String s)
 	{
+		s=s.toLowerCase();
 		Session session = sessionFactory.getCurrentSession();
 		ArrayList<String> r =new ArrayList<String>();
 		ArrayList<String> param = new ArrayList<String>();//Fn.Util.getParam();
@@ -114,7 +115,10 @@ public class ContactDAO implements IdaoContact {
 		{
 			q = session.createQuery("select "+p+" from Contact where "+p+" like :search");
 			q.setParameter("search","%"+s+"%"); 
-			r.addAll(q.list());
+			for(String temp:q.list())
+			{
+				r.add(temp.toLowerCase());
+			}
 		}
 		return r;
 	}

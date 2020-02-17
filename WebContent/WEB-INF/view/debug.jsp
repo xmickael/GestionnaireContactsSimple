@@ -48,5 +48,14 @@
 			</ul>
 		</c:if>
 	<jsp:include page="inc/footer.jsp"></jsp:include>
+	<script>
+	$("li:contains('${search}')").each(function()
+			{
+			    var $el = $(this);
+			    $el.html( $el.html().replace(/${search}/g, '<b>${search}</b>') );
+			});
+	
+	
+	</script>
 </body>
 </html>

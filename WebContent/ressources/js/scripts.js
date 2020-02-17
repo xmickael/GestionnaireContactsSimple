@@ -22,7 +22,47 @@ $(document)
 					$('#datatableContact')
 							.DataTable(
 									{
-									"language" : {
+									
+										opts: {
+									        multiple:false,
+
+									        minimumInputLength: 3,
+									        ajax: {
+									            url: "/api/contacts",
+									            dataType: "JSON",
+									            delay: 250,
+									            data: function (params) {
+									                return {
+									                    query: params.term, // search term
+									                    page: params.page
+									                };
+									            },
+									            //https://select2.github.io/examples.html
+									            processResults: function (data, params) {
+									                // parse the results into the format expected by Select2
+									                // since we are using custom formatting functions we do not need to
+									                // alter the remote JSON data, except to indicate that infinite
+									                // scrolling can be used
+									                params.page = params.page || 1;
+									                return {
+									                    results: data.items,
+									                    pagination: {
+									                        more: (params.page * 30) < data.total_count
+									                    }
+									                };
+									            },
+									            cache: true
+									        },
+
+									        minimumInputLength: 3,
+									        templateResult: function(data) {
+									            return data.text;
+									        },
+									        templateSelection: function(data) {return data.text;},
+
+									        },
+										
+										"language" : {
 											"sEmptyTable" : "Aucune donnée disponible dans le tableau",
 											"sInfo" : "Affichage de l'élément _START_ à _END_ sur _TOTAL_ éléments",
 											"sInfoEmpty" : "Affichage de l'élément 0 à 0 sur 0 élément",
@@ -55,6 +95,10 @@ $(document)
 
 									});
 				});
+
+
+
+
 
 function readURL(input) {
 	if (input.files && input.files[0]) {
